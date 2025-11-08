@@ -36,10 +36,10 @@ author:
   links:
     - label: "GitHub"
       icon: "fab fa-fw fa-github" # Font Awesome icon
-      url: "[https://github.com/green-dolphin-street](https://github.com/green-dolphin-street)"
+      url: "[https://github.com/green-dolphin-street"
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
-      url: "[https://www.linkedin.com/in/hkk534/](https://www.linkedin.com/in/hkk534/)"
+      url: "https://www.linkedin.com/in/hkk534/"
     # Add more links as you like
 
 # Site Footer
@@ -47,7 +47,7 @@ footer:
   links:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "[https://github.com/green-dolphin-street](https://github.com/green-dolphin-street)"
+      url: "[https://github.com/green-dolphin-street"
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
-      url: "[https://www.linkedin.com/in/hkk534/](https://www.linkedin.com/in/hkk534/)"
+      url: "[https://www.linkedin.com/in/hkk534/"
