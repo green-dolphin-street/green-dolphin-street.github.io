@@ -1,0 +1,206 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.27.3 by Michael Rose
+  Copyright 2013-2025 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Elb and autoscaling - Latrell Cartel</title>
+<meta name="description" content="Elastic Load Balancer (ELB): A service that automatically distributes incoming traffic across multiple target servers. It’s “elastic” because the load balancer itself scales its own capacity up and down to match traffic levels.   ELB Types: “ELB” is the family name for the service. The specific products are:            ALB (Application Load Balancer): Layer 7 (HTTP/HTTPS). Smart, content-based routing (e.g., by URL path). Ideal for modern apps and microservices.       NLB (Network Load Balancer): Layer 4 (TCP/UDP). Extremely fast and high-performance. Ideal for high-throughput or low-latency applications.       CLB (Classic Load Balancer): Legacy (Layer 4/7). The older generation, not recommended for new applications.           Auto Scaling: A service that automatically adds or removes servers (e.g., EC2 instances) from a resource pool of VMs based on demand (like CPU usage).   Scaling Terminology:            Horizontal Scaling (Out/In): Changing the number of servers.                    Scale Out: Adding more servers.           Scale In: Removing servers.                       Vertical Scaling (Up/Down): Changing the power of a single server.                    Scale Up: Increasing resources (e.g., more CPU/RAM).           Scale Down: Decreasing resources.                           ELB vs. Auto Scaling Distinction:            ELB (The “Traffic Cop”): Its job is to distribute traffic. It does not add or remove servers; it just routes requests to the healthy servers in its list.       Auto Scaling (The “Resource Manager”): Its job is to manage the server count. It adds (scales out) or removes (scales in) VM instances from a group.       They are separate services that work together: Auto Scaling adds/removes servers, and the ELB automatically detects these changes and adjusts its traffic distribution accordingly.">
+
+
+  <meta name="author" content="Latrell">
+  
+  <meta property="article:author" content="Latrell">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Latrell Cartel">
+<meta property="og:title" content="Elb and autoscaling">
+<meta property="og:url" content="http://localhost:4000/2025/11/08/ELB-and-autoscaling.html">
+
+
+  <meta property="og:description" content="Elastic Load Balancer (ELB): A service that automatically distributes incoming traffic across multiple target servers. It’s “elastic” because the load balancer itself scales its own capacity up and down to match traffic levels.   ELB Types: “ELB” is the family name for the service. The specific products are:            ALB (Application Load Balancer): Layer 7 (HTTP/HTTPS). Smart, content-based routing (e.g., by URL path). Ideal for modern apps and microservices.       NLB (Network Load Balancer): Layer 4 (TCP/UDP). Extremely fast and high-performance. Ideal for high-throughput or low-latency applications.       CLB (Classic Load Balancer): Legacy (Layer 4/7). The older generation, not recommended for new applications.           Auto Scaling: A service that automatically adds or removes servers (e.g., EC2 instances) from a resource pool of VMs based on demand (like CPU usage).   Scaling Terminology:            Horizontal Scaling (Out/In): Changing the number of servers.                    Scale Out: Adding more servers.           Scale In: Removing servers.                       Vertical Scaling (Up/Down): Changing the power of a single server.                    Scale Up: Increasing resources (e.g., more CPU/RAM).           Scale Down: Decreasing resources.                           ELB vs. Auto Scaling Distinction:            ELB (The “Traffic Cop”): Its job is to distribute traffic. It does not add or remove servers; it just routes requests to the healthy servers in its list.       Auto Scaling (The “Resource Manager”): Its job is to manage the server count. It adds (scales out) or removes (scales in) VM instances from a group.       They are separate services that work together: Auto Scaling adds/removes servers, and the ELB automatically detects these changes and adjusts its traffic distribution accordingly.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2025-11-08T00:00:00+09:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/2025/11/08/ELB-and-autoscaling.html">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Latrell Cartel Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--default" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Latrell Cartel
+          
+        </a>
+        <ul class="visible-links"></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      <ul>
+  <li><strong>Elastic Load Balancer (ELB):</strong> A service that automatically distributes incoming traffic across multiple target servers. It’s “elastic” because the load balancer <em>itself</em> scales its own capacity up and down to match traffic levels.</li>
+  <li><strong>ELB Types:</strong> “ELB” is the family name for the service. The specific products are:
+    <ul>
+      <li><strong>ALB (Application Load Balancer):</strong> Layer 7 (HTTP/HTTPS). Smart, content-based routing (e.g., by URL path). Ideal for modern apps and microservices.</li>
+      <li><strong>NLB (Network Load Balancer):</strong> Layer 4 (TCP/UDP). Extremely fast and high-performance. Ideal for high-throughput or low-latency applications.</li>
+      <li><strong>CLB (Classic Load Balancer):</strong> Legacy (Layer 4/7). The older generation, not recommended for new applications.</li>
+    </ul>
+  </li>
+  <li><strong>Auto Scaling:</strong> A service that automatically <em>adds or removes servers</em> (e.g., EC2 instances) from a resource pool of VMs based on demand (like CPU usage).</li>
+  <li><strong>Scaling Terminology:</strong>
+    <ul>
+      <li><strong>Horizontal Scaling (Out/In):</strong> Changing the <em>number</em> of servers.
+        <ul>
+          <li><strong>Scale Out:</strong> Adding more servers.</li>
+          <li><strong>Scale In:</strong> Removing servers.</li>
+        </ul>
+      </li>
+      <li><strong>Vertical Scaling (Up/Down):</strong> Changing the <em>power</em> of a single server.
+        <ul>
+          <li><strong>Scale Up:</strong> Increasing resources (e.g., more CPU/RAM).</li>
+          <li><strong>Scale Down:</strong> Decreasing resources.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>ELB vs. Auto Scaling Distinction:</strong>
+    <ul>
+      <li><strong>ELB (The “Traffic Cop”):</strong> Its job is to <strong>distribute traffic</strong>. It does <em>not</em> add or remove servers; it just routes requests to the healthy servers in its list.</li>
+      <li><strong>Auto Scaling (The “Resource Manager”):</strong> Its job is to <strong>manage the server count</strong>. It adds (scales out) or removes (scales in) VM instances from a group.</li>
+      <li><strong>They are separate services</strong> that work together: Auto Scaling adds/removes servers, and the ELB automatically detects these changes and adjusts its traffic distribution accordingly.</li>
+    </ul>
+  </li>
+</ul>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://github.com/green-dolphin-street" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://www.linkedin.com/in/hkk534/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> LinkedIn</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2025 <a href="http://localhost:4000">Latrell Cartel</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

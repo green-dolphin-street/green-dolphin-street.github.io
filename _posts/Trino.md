@@ -1,0 +1,6 @@
+Trino
+* **Trino** (formerly PrestoSQL) is an open-source, high-performance **distributed SQL query engine**.
+* It is **not a database**; it does not store data. Its purpose is to run fast, interactive analytic queries on data that lives in *other* systems.
+* Its key feature is **query federation**, which allows you to write a single SQL query that can join data from multiple, different sources (e.g., query files in an S3 data lake, a MySQL database, and a Kafka stream all at once).
+* **Managed Trino:** A service where the cloud provider hosts, maintains, and scales a Trino cluster for you. You don't have to patch the Trino software or manage the servers, but you might still provision the *capacity* (e.g., "I want a 20-node cluster").
+* **Serverless Managed Trino:** This is the most "hands-off" model. You don't manage *any* servers or clusters. You simply submit your SQL query to an endpoint. The provider automatically provisions the exact compute resources needed for that specific query and spins them down immediately after. You are billed **per-query** or **per-data-scanned**, not per-hour for an idle cluster.

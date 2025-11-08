@@ -1,0 +1,343 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.27.3 by Michael Rose
+  Copyright 2013-2025 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Clos, leaf And Spine, fat Tree - Latrell Cartel</title>
+<meta name="description" content="Network Topology Deep Dive: From Crossbar to HPC">
+
+
+  <meta name="author" content="Latrell">
+  
+  <meta property="article:author" content="Latrell">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Latrell Cartel">
+<meta property="og:title" content="Clos, leaf And Spine, fat Tree">
+<meta property="og:url" content="http://localhost:4000/2025/11/08/Clos,-leaf-and-spine,-fat-tree.html">
+
+
+  <meta property="og:description" content="Network Topology Deep Dive: From Crossbar to HPC">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2025-11-08T00:00:00+09:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/2025/11/08/Clos,-leaf-and-spine,-fat-tree.html">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Latrell Cartel Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--default" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Latrell Cartel
+          
+        </a>
+        <ul class="visible-links"></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      <h1 id="network-topology-deep-dive-from-crossbar-to-hpc">Network Topology Deep Dive: From Crossbar to HPC</h1>
+
+<p>This document outlines the concepts of network topology, starting from the fundamental crossbar switch and evolving to the complex, large-scale networks used in modern High-Performance Computing (HPC).</p>
+
+<h2 id="1-the-original-context-circuit-switching-and-crossbar-switch">1. The Original Context: Circuit Switching and Crossbar Switch</h2>
+<ul>
+  <li><strong>Circuit Switching</strong>: method of creating a dedicated, persistent paths (a “circuit”) for the entire duration of a communication (e.g., a phone call in a telephone network).</li>
+  <li>The <strong>Crossbar Switch</strong> was the <em>device</em> used to physically build these circuits.
+    <ul>
+      <li>The simplest form of non-blocking switches</li>
+      <li>Connects a set of ‘$N$’ inputs to ‘$M$’ outputs, using a <strong>grid of crosspoints</strong>.</li>
+      <li>To connect any input to any available output, the switch at the corresponding crosspoint is activated.</li>
+    </ul>
+  </li>
+  <li><strong>Key Property:</strong> It is “strictly non-blocking,” meaning any input-to-output connection can be made without interfering with any other existing connection.</li>
+  <li><strong>The Scaling Problem:</strong> The number of required crosspoints (switches) scales quadratically ($N^2$, or $N \times M,$ if $N \neq M$).</li>
+</ul>
+
+<h2 id="2-more-scalable-design-the-clos-topology-invented-by-charles-clos-in-1953">2. More Scalable Design: The Clos Topology (invented by Charles Clos in 1953)</h2>
+
+<ul>
+  <li><strong>Clos network:</strong> a multi-stage switching architecture that builds one large, non-blocking (or nearly non-blocking) switch network out of many smaller crossbar switches</li>
+  <li><strong>Original Purpose: Circuit Switching</strong>
+    <ul>
+      <li>Invented to solve the scaling problem for the circuit-switched telephone network.</li>
+      <li>Allowed telephone companies to connect entire cities using smaller, manageable crossbar switches</li>
+    </ul>
+  </li>
+  <li><strong>3 Stages:</strong>
+    <ol>
+      <li><strong>Stage 1: Ingress</strong> (Input switches)</li>
+      <li><strong>Stage 2: Middle</strong> (Core switches)</li>
+      <li><strong>Stage 3: Egress</strong> (Output switches)</li>
+    </ol>
+  </li>
+  <li><strong>Key Wiring Rule:</strong> Every switch in one stage is connected to <em>every</em> switch in the next stage.</li>
+  <li><strong>Path diversity:</strong> multiple available paths for establishing a connection through the network. If one path through the Middle stage is busy, the switch can instantly use another, maintaining its non-blocking property at a fraction of the cost of a single giant crossbar.</li>
+  <li>Transition to <strong>Packet Switching</strong>
+    <ul>
+      <li>For decades, Clos networks were not relevant for data networking.</li>
+      <li>The traditional 3-tier hierarchical model (Core, Distribution, Access) was mainly used. This was well-suited for the <strong>north-south</strong> (user-to-server) traffic.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="3-the-modern-data-center-adaptation-spine-and-leaf">3. The Modern Data Center Adaptation: Spine-and-Leaf</h2>
+<ul>
+  <li><strong>The New Problem:</strong> The rise of computing clusters and data centers created a new traffic pattern: <strong>East-West</strong> (server-to-server) communication.</li>
+  <li><strong>The Solution:</strong> The Clos topology was “rediscovered” as the perfect solution for this new <strong>packet-switched</strong> problem.</li>
+  <li><strong>The Adaptation: A “Folded Clos Network”</strong>
+    <ul>
+      <li>In a data center, a server is both an input (Ingress) and an output (Egress).</li>
+      <li>The 3-stage Clos is “folded” into a 2-tier hierarchy:
+        <ul>
+          <li><strong>Leaf Layer:</strong> combination of the Ingress and Egress stages.</li>
+          <li><strong>Spine Layer:</strong> the Middle stage.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>Spine-and-Leaf connection rule:</strong>
+    <ol>
+      <li>Servers connect to Leaf switches.</li>
+      <li>Every Leaf switch connects to <em>every</em> Spine switch.</li>
+      <li>Leaf switches <em>never</em> connect to other Leaf switches.</li>
+      <li>Spine switches <em>never</em> connect to other Spine switches.</li>
+    </ol>
+  </li>
+  <li><strong>Advantages:</strong>
+    <ul>
+      <li><strong>Low, predictable latency:</strong> All server-to-server (East-West) traffic is exactly 2 hops: <strong>Leaf $\rightarrow$ Spine $\rightarrow$ Leaf</strong>.</li>
+      <li><strong>Easy, Scalable Bandwidth:</strong>
+        <ul>
+          <li>Need more server ports? $\Rightarrow$ Add a new Leaf switch and connect it to all the Spines.</li>
+          <li>Need more network bandwidth (capacity)? $\Rightarrow$ Add a new Spine switch and connect it to all the Leaves.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="4-physical-vs-logical-structure">4. Physical vs Logical structure</h2>
+
+<ul>
+  <li>A common confusion stems from the differences between the logical leaf-and-spine diagram and the physical build.</li>
+  <li><strong>Logical structure:</strong> Shows abstract layers of “Leaf” and “Spine” switches.</li>
+  <li><strong>Physical structure (Top-of-Rack Design):</strong>
+    <ul>
+      <li><strong>The Rack (Physical Unit):</strong>
+        <ul>
+          <li>A single data center cabinet that contains 20-40 servers.</li>
+          <li>Contains 1 or 2 Leaf Switches <strong>inside the same rack</strong> (at the “Top-of-Rack,” or ToR).</li>
+          <li>The “intra-rack” server interconnection (the leaf-to-spine connection) runs <em>inside</em> this one rack, from the servers to their own ToR/Leaf switch.</li>
+        </ul>
+      </li>
+      <li><strong>The Fabric (Physical Interconnect):</strong>
+        <ul>
+          <li>The <strong>Spine Switches</strong> live in their own separate, central racks.</li>
+          <li>Longer (often fiber optic) cables run from <em>every</em> Leaf switch (in <em>every</em> rack) to <em>every</em> Spine switch (in the central racks). These are the “fat branches.”</li>
+        </ul>
+      </li>
+      <li><strong>Conclusion:</strong> The logical “Server” and “Leaf” layers are physically bundled together into a repeating unit (the rack).</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="5-hpc-nomenclature">5. HPC Nomenclature</h2>
+<h3 id="51-fat-tree-the-hpc-term-for-clos">5.1. Fat-Tree: The HPC Term for Clos</h3>
+
+<ul>
+  <li><strong>A “Fat-Tree” <em>is</em> a Clos topology.</strong> The terms are interchangeable in this context.
+    <ul>
+      <li><strong>Spine-and-Leaf:</strong> The modern <em>data center</em> marketing term.</li>
+      <li><strong>Fat-Tree:</strong> The <em>HPC / parallel computing</em> academic term.</li>
+    </ul>
+  </li>
+  <li><strong>Why “Fat-Tree”?</strong>
+    <ul>
+      <li>A normal computing “tree” has a bottleneck at the root.</li>
+      <li>A “fat-tree” has links that get “fatter” (i.e., have more aggregate bandwidth) as you move up the hierarchy.</li>
+      <li>This “fatness” is achieved by the Clos wiring: the collection of <em>all</em> parallel links from the Leaf layer to the Spine layer creates one massive-bandwidth “fat trunk.”</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="52-other-hpc-topologies-torus--dragonfly">5.2. Other HPC Topologies (Torus &amp; Dragonfly)</h3>
+
+<ul>
+  <li>The TOP500 list also shows other topologies (Torus, Dragonfly) because they are used in custom-built “hero” supercomputers (e.g., <em>Frontier</em> uses HPE Slingshot, a Dragonfly topology).</li>
+  <li><strong>Different Goal:</strong> These are “direct-connect” networks, <em>not</em> switch-based like a fat-tree.</li>
+  <li><strong>Trade-off:</strong>
+    <ul>
+      <li><strong>Pro:</strong> Extremely fast for “nearest-neighbor” communication (common in physics simulations).</li>
+      <li><strong>Con:</strong> <em>Not</em> uniform latency. A node talking to a far-away node (across the torus) is much slower than talking to its direct neighbor, unlike the predictable 2-hop time in a fat-tree.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="53-clarifying-k-ary-n-tree-theory-vs-practice">5.3. Clarifying “k-ary n-tree” (Theory vs. Practice)</h3>
+
+<ul>
+  <li>“k-art n-tree” means a tree network with each node having ‘$k$’ children and extending to depth ‘$n$’. (e.g., a 4-ary 3-tree).</li>
+  <li>
+    <p>This is a <em>theoretical model</em> for analyzing fat-trees, which causes two main points of confusion in practice.</p>
+  </li>
+  <li><strong>Confusion 1: “Consistent children nodes” (k-ary)</strong>
+    <ul>
+      <li><strong>Theory:</strong> Implies all switches are identical, with ‘$k$’ ports (e.g., ‘$k/2$’ up, ‘$k/2$’ down).</li>
+      <li><strong>Practice:</strong> This is often false. Hardware is <em>asymmetric</em>.
+        <ul>
+          <li><strong>Leaf Switches:</strong> Have many <em>downlink</em> ports (e.g., 48x25G for servers) and fewer, high-speed <em>uplink</em> ports (e.g., 8x100G for spines).</li>
+          <li><strong>Spine Switches:</strong> Have all high-speed ports that all connect “down” to Leaves (e.g., 64x100G ports).</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>Confusion 2: “Tree level can extend beyond 3” (n-tree)</strong>
+    <ul>
+      <li><strong>This is very practical and common.</strong> This is how you scale <em>beyond</em> the port limits of a single Spine switch.</li>
+      <li><strong>The Limit:</strong> A 3-stage Clos is limited by the port density of its Spine switches. (A 64-port Spine switch can support a maximum of 64 Leaf switches).</li>
+      <li><strong>The Solution:</strong> A <strong>5-stage Clos</strong> (or “Super-Spine” architecture).
+        <ul>
+          <li>You build multiple 3-stage “pods” (Leaf + Spine).</li>
+          <li>You add a new, third layer of switches (the <strong>Super-Spine</strong>) that connects <em>all</em> the Spine switches from <em>all</em> the pods.</li>
+        </ul>
+      </li>
+      <li><strong>New Data Path (5 Hops):</strong>
+  Server A $\rightarrow$ Leaf (Pod 1) $\rightarrow$ Spine (Pod 1) $\rightarrow$ <strong>Super-Spine</strong> $\rightarrow$ Spine (Pod 2) $\rightarrow$ Leaf (Pod 2) $\rightarrow$ Server B</li>
+    </ul>
+  </li>
+</ul>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://github.com/green-dolphin-street" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://www.linkedin.com/in/hkk534/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> LinkedIn</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2025 <a href="http://localhost:4000">Latrell Cartel</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

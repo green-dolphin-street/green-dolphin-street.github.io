@@ -9,8 +9,13 @@ description: >- # this means to ignore newlines until "baseurl:"
   # put description here
 
 # Add a theme
-theme: minimal-mistakes-jekyll
+remote_theme: mmistakes/minimal-mistakes@4.27.3
 minimal_mistakes_skin: sunrise
+
+# Enable the remote theme plugin
+plugins:
+  - jekyll-remote-theme
+  - jekyll-include-cache
 
 # Exclude from processing.
 # The following items will not be processed, by default.
