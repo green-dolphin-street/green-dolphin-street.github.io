@@ -4,12 +4,15 @@
 # which you are expected to set up once and rarely edit after that.
 
 # Site settings
-title: Collateral Latrell
+title: Latrell Cartel
 description: >- # this means to ignore newlines until "baseurl:"
-  Write a short description of your blog here.
+  # put description here
 
 # Add a theme
-theme: minima
+theme: minimal-mistakes-jekyll
+
+# This is for your social media links (optional)
+github_username:  green-dolphin-street
 
 # Exclude from processing.
 # The following items will not be processed, by default.
