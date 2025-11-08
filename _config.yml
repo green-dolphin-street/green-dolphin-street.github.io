@@ -11,9 +11,6 @@ description: >- # this means to ignore newlines until "baseurl:"
 # Add a theme
 theme: minimal-mistakes-jekyll
 
-# This is for your social media links (optional)
-github_username:  green-dolphin-street
-
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be ignored by Jekyll.
@@ -28,3 +25,29 @@ exclude:
   - vendor/cache/
   - vendor/gems/
   - vendor/ruby/
+
+# --- Minimal Mistakes Theme Settings ---
+# Site Author
+author:
+  name             : "Latrell" # Your name
+  avatar           : # "/assets/images/bio-photo.jpg" # Optional: path to your photo
+  bio              : "Random thoughts on random things" # A short bio
+  location         : "Somewhere, Northern Hemisphere"
+  links:
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github" # Font Awesome icon
+      url: "[https://github.com/green-dolphin-street](https://github.com/green-dolphin-street)"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "[https://www.linkedin.com/in/hkk534/](https://www.linkedin.com/in/hkk534/)"
+    # Add more links as you like
+
+# Site Footer
+footer:
+  links:
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "[https://github.com/green-dolphin-street](https://github.com/green-dolphin-street)"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "[https://www.linkedin.com/in/hkk534/](https://www.linkedin.com/in/hkk534/)"
