@@ -10,7 +10,7 @@ description: >- # this means to ignore newlines until "baseurl:"
 
 # Add a theme
 theme: minimal-mistakes-jekyll
-minimal_mistakes_skin: "sunrise"
+minimal_mistakes_skin: sunrise
 
 # Exclude from processing.
 # The following items will not be processed, by default.
@@ -32,12 +32,12 @@ exclude:
 author:
   name             : "Latrell" # Your name
   avatar           : # "/assets/images/bio-photo.jpg" # Optional: path to your photo
-  bio              : "Random thoughts on random things" # A short bio
+  bio              : "Random things I learned five minutes ago" # A short bio
   location         : "Somewhere, Northern Hemisphere"
   links:
     - label: "GitHub"
       icon: "fab fa-fw fa-github" # Font Awesome icon
-      url: "[https://github.com/green-dolphin-street"
+      url: "https://github.com/green-dolphin-street"
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
       url: "https://www.linkedin.com/in/hkk534/"
@@ -48,7 +48,7 @@ footer:
   links:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "[https://github.com/green-dolphin-street"
+      url: "https://github.com/green-dolphin-street"
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
-      url: "[https://www.linkedin.com/in/hkk534/"
+      url: "https://www.linkedin.com/in/hkk534/"

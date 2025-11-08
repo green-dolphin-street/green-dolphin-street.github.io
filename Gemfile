@@ -1,7 +1,6 @@
 source "https://rubygems.org"
 
-# This bundles all the standard gems GitHub Pages uses
 gem "github-pages", group: :jekyll_plugins
-
-# This is the new theme you want to add
+gem "jekyll-include-cache", group: :jekyll_plugins
+gem "jekyll-remote-theme"
 gem "minimal-mistakes-jekyll"
