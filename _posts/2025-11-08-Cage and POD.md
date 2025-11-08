@@ -1,5 +1,4 @@
-## Cage
-
+### Cage
 * **Definition:** A physical security barrier, typically a wire-mesh fence or partition.
 * **Purpose:** **Security & Access Control**. Used to physically secure a tenant's racks from others.
 * **Common Use:** Co-location (multi-tenant) data centers.
@@ -7,7 +6,7 @@
 
 ---
 
-## POD (Point of Deployment)
+### POD (Point of Deployment)
 
 * **Definition:** A logical, standardized, and repeatable "building block" of infrastructure.
 * **Purpose:** **Scalability & Standardization**. Used to rapidly deploy new capacity.
@@ -16,7 +15,7 @@
 
 ---
 
-## Summary: Cage vs. POD
+### Summary: Cage vs. POD
 
 | Attribute | Cage | POD |
 | :--- | :--- | :--- |

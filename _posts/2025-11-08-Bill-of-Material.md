@@ -1,13 +1,10 @@
+
 ### BOM (Bill of Materials)
+* A **Bill of Materials** is a **Parts List**
+* A document containing **all parts lists and information** required to configure a product (e.g., a server machine)
 
-* **정의**
-    * **자재 명세서** 또는 **부품 명세서**
-    * 제품(서버 기계)을 구성하는 데 필요한 **모든 부품 목록과 정보**를 담고 있는 문서
-
-* **서버 분야에서의 역할**
-    * 서버 구성품 (CPU, 메모리, 저장 장치, DAC 케이블 등)의 **정확한 품목, 수량, 공급업체, 버전** 기록
-    * 특정 서버 모델의 **표준 구성** 정의 및 관리
-    * 서버의 제조, 구매, 재고 관리, **유지보수(버전 추적)**를 위한 **기준 문서**로 활용
-
-* **참고**
-    * 하드웨어 BOM 외에 소프트웨어 구성 요소를 관리하는 **SBOM (Software Bill of Materials)**도 있음
+### Role in the Server Field
+* Records the **exact item, quantity, supplier, and version** of server components (CPU, memory, storage devices, DAC cables, etc.)
+* Defines and manages the **standard configuration** of a specific server model
+* Used as the **reference document** for server manufacturing, purchasing, inventory management, and **maintenance (version tracking)**
+* In addition to hardware BOM, there is also **SBOM (Software Bill of Materials)**, which manages software components.
