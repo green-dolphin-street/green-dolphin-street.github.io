@@ -1,4 +1,4 @@
-source "[https://rubygems.org](https://rubygems.org)"
+source "https://rubygems.org"
 
 # This bundles all the standard gems GitHub Pages uses
 gem "github-pages", group: :jekyll_plugins
