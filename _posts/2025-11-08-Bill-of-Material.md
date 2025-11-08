@@ -1,5 +1,14 @@
+---
+title: "Bill of Material (BOM)"
+layout: single
+date: 2025-11-08
+categories:
+  - IT Infrastructure Engineering
+tags:
+  - Asset management
+---
 
-### BOM (Bill of Materials)
+### Bill of Material (BOM)
 * A **Bill of Materials** is a **Parts List**
 * A document containing **all parts lists and information** required to configure a product (e.g., a server machine)
 

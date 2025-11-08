@@ -1,3 +1,14 @@
+---
+title: "Data Warehouse vs Data Late"
+layout: single
+date: 2025-11-08
+categories:
+  - IT Infrastructure Engineering
+tags:
+  - Storage
+use_math: true
+---
+
 Data warehouse and data lake are two different approaches to storing and managing data, each suited to different needs and use cases. Here's a detailed comparison:
 
 ## Data Warehouse

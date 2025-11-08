@@ -1,8 +1,19 @@
-* **IPMI (Intelligent Platform Management Interface)**
-    * **What it is:** A hardware-level technology that allows administrators to remotely manage and monitor servers, which is fundamental to cloud data centers.
-    * **Core Concept:** It's a separate, independent "mini-computer" built onto the server's mainboard. It has its own processor, memory, and network connection.
-    * **Key Feature:** It runs completely independently of the server's main CPU and operating system (OS). It is **always on** as long as the server has power, even if the server itself is powered "off."
-    * **Main Purpose:** It provides **"out-of-band" (OOB) management**, which means you can control the server even when its OS is crashed, frozen, or off.
+---
+title: "Intelligent Platform Management Interface (IPMI)"
+layout: single
+date: 2025-11-08
+categories:
+  - IT Infrastructure Engineering
+tags:
+  - Availability
+use_math: true
+---
+
+### **IPMI (Intelligent Platform Management Interface)**
+* **What it is:** A hardware-level technology that allows administrators to remotely manage and monitor servers, which is fundamental to cloud data centers.
+* **Core Concept:** It's a separate, independent "mini-computer" built onto the server's mainboard. It has its own processor, memory, and network connection.
+* **Key Feature:** It runs completely independently of the server's main CPU and operating system (OS). It is **always on** as long as the server has power, even if the server itself is powered "off."
+* **Main Purpose:** It provides **"out-of-band" (OOB) management**, which means you can control the server even when its OS is crashed, frozen, or off.
 
 ---
 

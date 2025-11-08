@@ -1,3 +1,14 @@
+---
+title: "Development, Staging, and Pre-production Phases"
+layout: single
+date: 2025-11-08
+categories:
+  - IT Infrastructure Engineering
+tags:
+  - Operation
+use_math: true
+---
+
 - Development (dev), staging (stg), and pre-production (ppd) are isolated 'environments' for the different phases of development, testing, and release.
 - An 'environment' is a self-contained, isolated system where a software application is run and tested. The core purpose is isolation—actions taken in one environment (like a developer's experimental code in dev) cannot break another environment (like the live application in prod).
 

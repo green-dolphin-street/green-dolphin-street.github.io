@@ -1,4 +1,13 @@
-## Comparison of Network Segmentation: VRF vs. Bridging (English Summary)
+---
+title: "Virtual Routing and Forwarding (VRF) and Bridging"
+layout: single
+date: 2025-11-08
+categories:
+  - IT Infrastructure Engineering
+tags:
+  - Network
+use_math: true
+---
 
 #### 1. VRF (Virtual Routing and Forwarding)
 

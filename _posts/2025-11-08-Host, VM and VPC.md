@@ -1,9 +1,21 @@
-# 1. Host and VM are in Cloud
+---
+title: "Virtual Machines and Virtual Private Cloud"
+layout: single
+date: 2025-11-08
+categories:
+  - IT Infrastructure Engineering
+tags:
+  - Resource management
+  - Virtualization
+use_math: true
+---
+
+### 1. Host and VM are in Cloud
 
 * **Host:** The **physical server** in the data center. It's the real hardware with the CPU, RAM, and storage. It runs a **hypervisor** (special software).
 * **VM (Virtual Machine):** A **software-emulated computer** that runs as a "guest" on the host. The hypervisor "carves up" the host's physical resources (CPU, RAM) and gives a slice to each VM. Multiple isolated VMs can run on a single host.
 
-# 2. What VPC is, and How It Spans Many Hosts
+### 2. What VPC is, and How It Spans Many Hosts
 
 * **VPC (Virtual Private Cloud):** An **isolated, private network** that you define *inside* the cloud. It's not a physical thing; it's a logical boundary created with **Software-Defined Networking (SDN)**.
 * **The Hypervisor's Role in Adding VMs:**
@@ -16,7 +28,7 @@
     * You can launch `VM-1` (on `Host-A`) and `VM-2` (on `Host-B`) into the *same VPC*.
     * The SDN "overlay" automatically creates a virtual tunnel between them, making them seem like they're on the same local network, even if the hosts are in different racks.
 
-# 3. How Different Parties Use VPCs and For What
+### 3. How Different Parties Use VPCs and For What
 
 * **SaaS Companies & Application Developers:**
     * **Purpose:** To build secure, **multi-tier applications**.

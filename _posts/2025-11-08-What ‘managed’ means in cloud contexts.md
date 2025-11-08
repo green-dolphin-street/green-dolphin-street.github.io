@@ -1,3 +1,14 @@
+---
+title: "What ‘Managed’ Means in Cloud Contexts"
+layout: single
+date: 2025-11-08
+categories:
+  - IT Infrastructure Engineering
+tags:
+  - Service
+use_math: true
+---
+
 * In a cloud context, **"managed"** means the cloud provider (like AWS, Google Cloud, or Azure) takes full responsibility for the **operational overhead** and maintenance of a service.
 * The provider handles tasks like **installation, configuration, software patching, updates, backups, security, and high availability**.
 * This contrasts with an "unmanaged" service, where you rent a bare virtual machine (an instance) and are responsible for installing, configuring, and maintaining the software yourself.

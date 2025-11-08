@@ -1,15 +1,27 @@
-# Hypervisor Summary
+---
+title: "Hypervisor"
+layout: single
+date: 2025-11-08
+categories:
+  - IT Infrastructure Engineering
+tags:
+  - Virtualization
+  - Resource management
+use_math: true
+---
+
+### Hypervisor
 
 A **Hypervisor**, also known as a **Virtual Machine Monitor (VMM)**, is the foundational technology that enables virtualization by allowing multiple independent **Virtual Machines (VMs)** to run on a single physical host computer.
 
-## Core Functions
+### Core Functions of Hypervisor
 
 1.  **VM Creation and Management:** Creates and controls multiple virtualized environments (guests) on one physical machine (host).
 2.  **Resource Allocation:** Pools and dynamically distributes the host's physical resources (CPU, RAM, Storage, Network) among all running VMs.
 3.  **Isolation:** Ensures that each VM is completely separated from others. A failure or security breach in one VM will not affect the others.
 4.  **Hardware Abstraction/Emulation:** Acts as an intermediary, presenting virtualized hardware to the guest OS while translating their resource requests for the underlying physical hardware.
 
-## Types of Hypervisors
+### Types of Hypervisors
 
 | Feature | Type 1 (Bare-Metal/Native) | Type 2 (Hosted) |
 | :--- | :--- | :--- |
@@ -19,7 +31,7 @@ A **Hypervisor**, also known as a **Virtual Machine Monitor (VMM)**, is the foun
 | **Security** | Higher (Smaller attack surface). | Lower (Relies on the security of the host OS). |
 | **Use Case** | Enterprise data centers, cloud computing (e.g., VMware ESXi, Microsoft Hyper-V, KVM). | Desktop use, development, and testing (e.g., VirtualBox, VMware Workstation). |
 
-## Implementation and Context
+### Implementation and Context
 
 The hypervisor is often described as a layer of **software, firmware, or hardware** because:
 

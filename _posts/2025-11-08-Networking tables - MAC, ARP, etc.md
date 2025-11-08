@@ -1,3 +1,14 @@
+---
+title: "Networking Tables (MAC, ARP, etc.)"
+layout: single
+date: 2025-11-08
+categories:
+  - IT Infrastructure Engineering
+tags:
+  - Network
+use_math: true
+---
+
 ### The big picture
 * **Layer 2 (L2):** Local delivery (same network). Uses **MAC addresses**. Like a mail carrier on one street.
 * **Layer 3 (L3):** Remote delivery (different networks). Uses **IP addresses**. Like the main post office routing mail to another city.

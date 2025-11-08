@@ -1,6 +1,16 @@
+---
+title: "Continuous Update Principles"
+layout: single
+date: 2025-11-08
+categories:
+  - IT Infrastructure Engineering
+tags:
+  - Availability
+---
+
 These are all strategies for updating software applications with minimal or zero downtime. They differ in their approach to risk, cost, and speed.
 
-## 1. Rolling Update
+### 1. Rolling Update
 
 * **How it works:** The new version (v2) gradually replaces the old version (v1) one instance at a time, or in small batches. During the update, the load balancer directs traffic to both v1 and v2 instances until all instances are running v2.
 * **Pros:**
@@ -11,11 +21,9 @@ These are all strategies for updating software applications with minimal or zero
     * **Slow Rollback:** If a problem is found, rolling back is also a slow process (must "roll" backward).
     * **Compatibility Issues:** For a short time, both v1 and v2 run simultaneously, which can cause problems if they can't coexist (e.g., database schema changes).
 
-
-
 ---
 
-## 2. Blue-Green Deployment
+### 2. Blue-Green Deployment
 
 * **How it works:** You have two separate, identical production environments: "Blue" (running v1) and "Green" (running v2).
     1.  All user traffic goes to the **Blue** environment.
@@ -30,10 +38,9 @@ These are all strategies for updating software applications with minimal or zero
     * **Very Expensive:** Requires maintaining double the infrastructure.
 
 
-
 ---
 
-## 3. Canary Release
+### 3. Canary Release
 
 * **How it works:** "Test in production" by rolling out the new version (v2) to a tiny subset of real users (e.g., 1%, 5%, or just internal employees).
     1.  Most users (e.g., 99%) still go to v1, while the small "canary" group (1%) is routed to v2.

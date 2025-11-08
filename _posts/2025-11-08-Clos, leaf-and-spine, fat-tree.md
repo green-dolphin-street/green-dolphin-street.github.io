@@ -6,8 +6,9 @@ categories:
   - IT Infrastructure Engineering
 tags:
   - Network topology
+  - Network
   - HPC
-math: true
+use_math: true
 ---
 
 ## Network Topology Deep Dive: From Crossbar to HPC

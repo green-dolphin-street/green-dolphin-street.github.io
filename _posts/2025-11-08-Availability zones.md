@@ -1,5 +1,5 @@
 ---
-title: "Availability zones"
+title: "Availability zone"
 layout: single
 date: 2025-11-08
 categories:

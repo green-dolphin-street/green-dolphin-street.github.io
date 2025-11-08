@@ -1,5 +1,15 @@
-# HPC visualization node
-- An HPC visualization node is a dedicated computer server within a high-performance computing (HPC) cluster that is equipped with powerful GPUs and ample memory, specifically designed to run data visualization software and handle graphical user interfaces (GUIs) for complex data analysis. These nodes are not directly accessible and are typically accessed through a secure remote desktop client or a Virtual Network Computing (VNC) session, which allows users to interact with their data visually on a remote machine.  
+---
+title: "Visualization Node"
+layout: single
+date: 2025-11-08
+categories:
+  - IT Infrastructure Engineering
+tags:
+  - Hardware
+use_math: true
+---
+
+An HPC visualization node is a dedicated computer server within a high-performance computing (HPC) cluster that is equipped with powerful GPUs and ample memory, specifically designed to run data visualization software and handle graphical user interfaces (GUIs) for complex data analysis. These nodes are not directly accessible and are typically accessed through a secure remote desktop client or a Virtual Network Computing (VNC) session, which allows users to interact with their data visually on a remote machine.  
   
 ### How it works
 - Resource allocation: You request a visualization node through the cluster's job scheduler, similar to how you would request a standard compute node, using commands like salloc or qsub. 

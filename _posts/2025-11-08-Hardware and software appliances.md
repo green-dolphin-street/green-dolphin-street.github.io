@@ -1,3 +1,14 @@
+---
+title: "Hardware and Software Appliance"
+layout: single
+date: 2025-11-08
+categories:
+  - IT Infrastructure Engineering
+tags:
+  - Products
+use_math: true
+---
+
 * **Hardware Appliance**
     * **What it is:** A physical, purpose-built device where the hardware and software are tightly integrated and sold as a single unit.
     * **Form Factor:** A "black box" server or device that you physically install.

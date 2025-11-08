@@ -1,3 +1,14 @@
+---
+title: "Fail-over vs Fail-back"
+layout: single
+date: 2025-11-08
+categories:
+  - IT Infrastructure Engineering
+tags:
+  - Availability
+use_math: true
+---
+
 Failover and Failback are two key stages of a complete **High Availability (HA)** strategy, designed to handle an outage and then return to a normal, protected state.
 
 * **Failover**: (The "Emergency Response" Stage)

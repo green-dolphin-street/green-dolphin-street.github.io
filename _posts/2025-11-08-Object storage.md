@@ -1,19 +1,30 @@
-# Data storage service
+---
+title: "Object Storage"
+layout: single
+date: 2025-11-08
+categories:
+  - IT Infrastructure Engineering
+tags:
+  - Storage
+use_math: true
+---
+
+### Data storage service
 - Allows applications to share a storage
 - Without this, multiple applications can access the storage in incompatible ways, leading to resource contention, data corruption and data loss.
 
-# Computer data storage types
-### File system
+### Computer data storage types
+#### File system
 - Manages data as a file hierarchy
 - Local file system: **capability of an operating system** that services the applications running on the same computer
 - Distributed file system: protocol that provides **file access between networked computers**
 
-### Block storage
+#### Block storage
 - Manages data as blocks within sectors and tracks
 - A file is divided into blocks
 - Can be directly accessed by the operating system as a mounted drive volume
 
-### Object storage
+#### Object storage
 - Manages data as **objects** within a container unit called **bucket**
 - Examples of objects
   - Videos and photos on Facebook

@@ -1,3 +1,15 @@
+---
+title: "GPU line-ups for Data Centers"
+layout: single
+date: 2025-11-08
+categories:
+  - IT Infrastructure Engineering
+tags:
+  - Products
+  - GPU
+use_math: true
+---
+
 For data centers, GPU line-ups differ significantly from consumer GPUs. Here's a breakdown:
 
 # **"A-Series" (Ampere Architecture)**

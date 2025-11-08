@@ -1,4 +1,16 @@
-## VLAN (Virtual Local Area Network)
+---
+title: "Virtual Local Area Network (VLAN) and VLAN Tagging"
+layout: single
+date: 2025-11-08
+categories:
+  - IT Infrastructure Engineering
+tags:
+  - Network
+  - Resource management
+use_math: true
+---
+
+### VLAN (Virtual Local Area Network)
 
 * **Definition:** A technology that logically segments a single physical switch into multiple independent **LANs (Local Area Networks)**.
 * **Purpose:**
@@ -8,16 +20,16 @@
     * Within the same VLAN: L2 communication possible.
     * Between different VLANs: Requires **Inter-VLAN Routing** via a **Router** or **L3 Switch**.
   
-## 2. Trunk Link
+### 2. Trunk Link
 * **Definition:** A link configured to carry **traffic from multiple VLANs** simultaneously over **one physical connection** between two switches (or a switch and a router).
 * **Necessity:** Solves the inefficiency of needing a separate physical link for every VLAN.
 * **Protocol:** Commonly uses the **IEEE 802.1Q** standard.
 * **Operation:** Frames passing over a trunk link have a **VLAN ID Tag** added to identify their origin.
 
 
-## VLAN tagging
+### VLAN tagging
 
-### What is VLAN Tagging (802.1Q)?
+#### What is VLAN Tagging (802.1Q)?
 
 * A method to identify which VLAN a packet (frame) belongs to.
 * Uses the **IEEE 802.1Q** standard.
@@ -25,7 +37,7 @@
 * This tag contains the **VLAN ID (VID)**.
 * Allows a single physical link (Trunk) to carry traffic for many different VLANs.
 
-### Port Types
+#### Port Types
 
 * **Access Port**
     * Connects to end devices (e.g., PC, printer, server).
@@ -36,7 +48,7 @@
     * Carries traffic for **multiple** VLANs.
     * Receives and sends **tagged** traffic (using 802.1Q).
 
-### How Tagging Works
+#### How Tagging Works
 
 1.  **Ingress (Untagged):**
     * A PC sends a normal, untagged packet to an **Access port** (e.g., Port 1) on Switch A.
@@ -69,7 +81,7 @@
     * Before sending the packet out Access port 5, Switch B **removes** the 802.1Q tag.
     * The destination PC receives a normal, untagged packet.
 
-### Key Concepts
+#### Key Concepts
 * **Purpose:** Tagging allows a *single VLAN* (e.g., VLAN 10) to be **extended** across multiple physical switches. It is for communication *within* the same VLAN.
 * **Isolation:** The tag ensures traffic stays isolated. `VLAN 10` traffic can *never* go to a `VLAN 20` port (at Layer 2).
 * **MAC Address Tables:** A switch maintains a **separate MAC table for each VLAN**.

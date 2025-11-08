@@ -1,18 +1,26 @@
-# IT Infrastructure Engineering
+---
+title: "Job Taxonomy for IT Infrastructure Engineering"
+layout: single
+date: 2025-11-08
+categories:
+  - IT Infrastructure Engineering
+tags:
+  - Operation
+use_math: true
+---
 
-## Overview
-- **Broadest concept.**
-- Encompasses all foundational IT components: systems, networks, and physical facilities.
-- Covers design, implementation, and operation.
+### Overview
+- The word 'IT Infrastructure Engineering' encompasses the jobs across all foundational IT components: systems, networks, and physical facilities.
+- There are terms that more accurately indicate what kind of works a person does.
 
 ---
 
-## 1. Data Center Infrastructure
+### 1. Data Center Infrastructure
 
 - **Domain:** The physical building and core facilities (power, cooling, space).
 - **Focus:** Providing the physical environment for IT hardware.
 
-### 1.1. Data Center Engineering (DCEng)
+#### 1.1. Data Center Engineering (DCEng)
 - **Role:** Design & Build.
 - **Key Duties:**
     - Electrical systems design (UPS, PDU, generators).
@@ -21,7 +29,7 @@
     - Cabling infrastructure (trays, conduits).
     - Physical security and fire suppression systems.
 
-### 1.2. Data Center Operations (DC Ops)
+#### 1.2. Data Center Operations (DC Ops)
 - **Role:** Run & Maintain.
 - **Key Duties:**
     - 24/7 facility monitoring (power, cooling).
@@ -33,12 +41,12 @@
 
 ---
 
-## 2. System Infrastructure
+### 2. System Infrastructure
 
 - **Domain:** Servers, Operating Systems (OS), Virtualization, and Storage.
 - **Focus:** The compute and storage platforms.
 
-### 2.1. System Engineering (SysEng)
+#### 2.1. System Engineering (SysEng)
 - **Role:** Design & Build.
 - **Key Duties:**
     - Server architecture design (HA, DR).
@@ -47,7 +55,7 @@
     - Virtualization platform (e.g., VMware, KVM) design and implementation.
     - OS standardization and golden image creation.
 
-### 2.2. System Operations (SysOps)
+#### 2.2. System Operations (SysOps)
 - **Role:** Run & Maintain.
 - **Key Duties:**
     - OS installation, patching, and configuration.
@@ -58,12 +66,12 @@
 
 ---
 
-## 3. Network Infrastructure
+### 3. Network Infrastructure
 
 - **Domain:** Data connectivity and communication.
 - **Focus:** The hardware and software that connects systems.
 
-### 3.1. Network Engineering (NetEng)
+#### 3.1. Network Engineering (NetEng)
 - **Role:** Design & Build.
 - **Key Duties:**
     - Network topology and architecture design.
@@ -72,7 +80,7 @@
     - Design of network services (firewalls, load balancers, VPN).
     - Hardware selection and new site build-outs.
 
-### 3.2. Network Operations (NetOps)
+#### 3.2. Network Operations (NetOps)
 - **Role:** Run & Maintain.
 - **Key Duties:**
     - Network monitoring (traffic, latency, uptime).

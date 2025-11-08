@@ -1,4 +1,16 @@
-## 1. Load Balancer
+---
+title: "Load Balancer and Clustering for High Availability"
+layout: single
+date: 2025-11-08
+categories:
+  - IT Infrastructure Engineering
+tags:
+  - Load balancing
+  - Availability
+use_math: true
+---
+
+### 1. Load Balancer
 
 * **Primary Purpose:** Load Balancing
 * **HA Role:**
@@ -8,19 +20,19 @@
 
 ---
 
-## 2. Clustering
+### 2. Clustering
 
 * **Primary Purpose:** High Availability (HA) and State Sharing
 * **Definition:** Technology that groups multiple servers (nodes) into a single logical unit, acting as one system.
 * **Key Function:** Detects failures via inter-node Heartbeats (status monitoring) and transfers roles.
 
-### A. Active/Standby (Active/Passive)
+#### A. Active/Standby (Active/Passive)
 
 * **Configuration:** One node is **Active** (handling services). The other node is **Standby** (monitoring the Active node).
 * **HA Operation:** On Active node failure, the Standby node immediately transitions to Active, taking over the service IP and resources (Takeover).
 * **Characteristic:** Lower resource efficiency (Standby node is idle). Clear role transition upon failure.
 
-### B. Active/Active
+#### B. Active/Active
 
 * **Configuration:** **All nodes** in the cluster are simultaneously Active, handling services.
 * **HA Operation:** (Usually combined with a Load Balancer) On node failure, the load balancer excludes it and distributes traffic to the remaining healthy nodes.
@@ -28,7 +40,7 @@
 
 ---
 
-## 3. GSLB (Global Server Load Balancing)
+### 3. GSLB (Global Server Load Balancing)
 
 * **Primary Purpose:** Disaster Recovery (DR) and Global Performance Optimization
 * **HA Role:**

@@ -1,4 +1,17 @@
-### Routing Methods: IGP and EGP (English Summary)
+---
+title: "Packet Routing (IGP and EGP)"
+layout: single
+date: 2025-11-08
+categories:
+  - IT Infrastructure Engineering
+tags:
+  - Network
+  - Routing
+use_math: true
+---
+
+
+### Routing Methods: IGP and EGP
 
 #### 1. Routing Overview
 

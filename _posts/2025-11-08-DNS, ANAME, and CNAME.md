@@ -1,3 +1,15 @@
+---
+title: "DNS, ANAME, and CNAME"
+layout: single
+date: 2025-11-08
+categories:
+  - IT Infrastructure Engineering
+tags:
+  - Network
+  - DNS
+use_math: true
+---
+
 ### What DNS and A Records Are
 
 * **DNS (Domain Name System):** Think of it as the internet's "phone book." Its main job is to translate human-friendly domain names (like `google.com`) into computer-friendly IP addresses (like `172.217.14.228`).

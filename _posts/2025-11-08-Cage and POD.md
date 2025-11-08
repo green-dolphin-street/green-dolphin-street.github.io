@@ -1,3 +1,13 @@
+---
+title: "Cage vs POD(Point of Deployment)"
+layout: single
+date: 2025-11-08
+categories:
+  - IT Infrastructure Engineering
+tags:
+  - Asset management
+---
+
 ### Cage
 * **Definition:** A physical security barrier, typically a wire-mesh fence or partition.
 * **Purpose:** **Security & Access Control**. Used to physically secure a tenant's racks from others.

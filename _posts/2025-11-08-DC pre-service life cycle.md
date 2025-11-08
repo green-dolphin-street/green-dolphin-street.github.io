@@ -1,4 +1,13 @@
-# Data Center Service Release Life Cycle
+---
+title: "Data Center Service Release Life Cycle"
+layout: single
+date: 2025-11-08
+categories:
+  - IT Infrastructure Engineering
+tags:
+  - Operation
+use_math: true
+---
 
 This describes the process of making a new, fully integrated *service* (e.g., a new compute cluster, a private cloud, or a new storage tier) available to users. It combines physical hardware, networking, and software into a single, production-ready offering.
 

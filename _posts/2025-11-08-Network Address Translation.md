@@ -1,8 +1,16 @@
-### NAT (Network Address Translator)
+---
+title: "Network Address Translator (NAT)"
+layout: single
+date: 2025-11-08
+categories:
+  - IT Infrastructure Engineering
+tags:
+  - Network
+use_math: true
+---
 
-- NAT
-  - A device (or a part of device) that modifies the **source/destination IP addresses and port numbers** in an IP packet header
-  - Representative usage: translate **private IP addresses** into **public IP addresses** to enable Internet communication
+- A device (or a part of device) that modifies the **source/destination IP addresses and port numbers** in an IP packet header
+- Representative usage: translate **private IP addresses** into **public IP addresses** to enable Internet communication
 
 - Purpose and characteristics of NAT
     * Enhances **Security** by hiding the internal private network structure from the outside
