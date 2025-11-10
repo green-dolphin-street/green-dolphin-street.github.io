@@ -6,7 +6,11 @@
 # Site settings
 title: Latrell Cartel
 description: >- # this means to ignore newlines until "baseurl:"
-  # put description here
+  Things I learned five minutes ago
+search: true
+search_full_content: true
+include: ["_pages"]
+excerpt_separator: "<!--more-->"
 
 # Add a theme
 remote_theme: mmistakes/minimal-mistakes@4.27.3
@@ -38,7 +42,7 @@ exclude:
 # --- Minimal Mistakes Theme Settings ---
 # Site Author
 author:
-  name             : "Latrell" # Your name
+  # name             : "Latrell"
   avatar           : # "/assets/images/bio-photo.jpg" # Optional: path to your photo
   bio              : "Random things I learned five minutes ago" # A short bio
   location         : "Somewhere, Northern Hemisphere"

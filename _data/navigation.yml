@@ -1,0 +1,8 @@
+# main navigation
+main:
+  - title: "Posts"
+    url: /
+  - title: "Subjects"
+    url: /subjects/
+  - title: "Tags"
+    url: /tags/
