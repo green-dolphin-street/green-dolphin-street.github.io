@@ -45,7 +45,6 @@ author:
   # name             : "Latrell"
   avatar           : # "/assets/images/bio-photo.jpg" # Optional: path to your photo
   bio              : "Random things I learned five minutes ago" # A short bio
-  location         : "Somewhere, Northern Hemisphere"
   links:
     - label: "GitHub"
       icon: "fab fa-fw fa-github" # Font Awesome icon
