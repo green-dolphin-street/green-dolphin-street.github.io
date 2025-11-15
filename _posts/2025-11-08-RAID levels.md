@@ -7,6 +7,7 @@ categories:
 tags:
   - Storage
   - Availability
+  - RAID
 use_math: true
 ---
 
