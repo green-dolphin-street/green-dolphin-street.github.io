@@ -52,7 +52,7 @@ use_math: true
 
 ### "Named Standards" for Rack Dimensions
 
-### 1. EIA-310 (The 19-inch Standard)
+### 1. EIA(Electronic Industries Alliance)-310 (The 19-inch Standard)
 * This is the standard everyone refers to as a "standard server rack."
 * **Width:** **19-inch** mounting.
 * **Height:** Measured in **Rack Units (U)**.

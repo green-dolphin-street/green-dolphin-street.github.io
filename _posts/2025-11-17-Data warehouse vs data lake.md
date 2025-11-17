@@ -1,7 +1,7 @@
 ---
-title: "Data Warehouse vs Data Late"
+title: "Data Warehouse, Data Mart, and Data Lake"
 layout: single
-date: 2025-11-08
+date: 2025-11-17
 categories:
   - IT Infrastructure Engineering
 tags:
@@ -9,9 +9,9 @@ tags:
 use_math: true
 ---
 
-Data warehouse and data lake are two different approaches to storing and managing data, each suited to different needs and use cases. Here's a detailed comparison:
+Data warehouse, data mart, and data lake are distinct approaches to storing and managing data, each suited to different needs and use cases. Here's a detailed comparison:
 
-## Data Warehouse
+### Data Warehouse
 * **Data Type:** Primarily **structured** (processed) data. Data is cleaned and organized *before* storage.
 * **Analogy:** A clean **pantry** where all ingredients are cleaned, labeled, and sorted on specific shelves, ready to be used in a known recipe.
 * **Data Management (Schema):** **Schema-on-Write** (i.e., schema defined before writing data into the database.)
@@ -20,9 +20,18 @@ Data warehouse and data lake are two different approaches to storing and managin
 * **Typical Users:** Business Analysts, BI Professionals.
 * **Corresponding Database Tech:** **SQL Databases** (like MySQL, PostgreSQL, or specific analytical databases) are the classic foundation for a data warehouse. They are built on the same rigid, structured, Schema-on-Write principle.
 
----
 
-## Data Lake
+
+### Data Mart
+* **Data Type:** **Structured** and often **summarized**.
+    * **Example:** Instead of every individual receipt, it might just hold "Daily Sales Totals."
+* **Analogy:** A **picnic basket** or a **mini-fridge** packed with specific items taken *from* the main pantry. It’s strictly for the Sales Team, so they don't have to search through the huge main pantry just to find a soda.
+* **Relationship:** It is usually a **subset** or a "slice" of the Data Warehouse.
+* **Data Management (Schema):** Same as Data Warehouse (**Schema-on-Write**), but the scope is much smaller.
+* **Typical Users:** Department-specific analysts (e.g., the Marketing Manager).
+* **Corresponding Database Tech:** It often uses the **same SQL Database technology** as the Data Warehouse, just separated logically (like a specific folder or access view), or it can be a smaller, separate SQL database.
+
+### Data Lake
 * **Data Type:** All types—**structured**, **semi-structured**, and **unstructured (raw)**.
     * **Examples:** Raw server logs, social media posts, `.jpg` images, `.mp3` files, and also database tables.
 * **Analogy:** A **large mailbox** where you put *everything* in its original packaging (tools, electronics, letters). You don't organize it until you decide to build something.
