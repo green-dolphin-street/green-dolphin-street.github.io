@@ -34,3 +34,10 @@ use_math: true
     * It has a **Memory Buffer (MB) chip** on the module.
     * This chip buffers **all signals** (address, control, *and* data).
     * This offers the absolute lowest electrical load, enabling the system to support the maximum possible memory density and total capacity.
+
+* **MRDIMM (Multiplexed Rank DIMM)**
+    * A cutting-edge memory technology designed specifically for **AI and HPC** (High-Performance Computing).
+    * Unlike RDIMMs which access one rank (group of chips) at a time, MRDIMM uses a special data buffer (Multiplexer) to access **two ranks simultaneously**.
+    * It combines these two data streams into a single, super-fast burst. This effectively **doubles the bandwidth (speed)** compared to standard DDR5 RDIMMs without needing faster individual memory chips.
+    * Currently, up to two ranks can be accessed simultaneously, but future advancements may allow for even more.
+    * **Physical Difference:** Often uses a **Tall Form Factor (TFF)**—it is physically taller than a standard DIMM to accommodate the extra buffer chips and heat management components.
