@@ -5,7 +5,7 @@ date: 2025-11-15
 categories:
   - IT Infrastructure Engineering
 tags:
-  - Topology
+  - Network Topology
   - Network
 use_math: true
 ---
