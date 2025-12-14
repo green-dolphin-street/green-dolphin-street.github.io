@@ -20,8 +20,8 @@ The CAP theorem is a fundamental concept in distributed systems, describing the 
 In distributed systems, it's impossible to guarantee all three properties at the same time. You must choose which two to prioritize:
 
 - **CA (Consistency + Availability):** Only possible if the network is reliable (no partitions). Rare in practice.
-- **CP (Consistency + Partition Tolerance):** System remains consistent but may become unavailable during partitions.
-- **AP (Availability + Partition Tolerance):** System remains available but may serve stale data during partitions.
+- **CP (Consistency + Partition Tolerance):** Ensures correct data but sacrifices availability during network splits.
+- **AP (Availability + Partition Tolerance):** Ensures high availability but may serve stale data during splits.
 
 ## Real-World Examples
 - **CP Systems:** HBase, MongoDB (with strong consistency settings)
