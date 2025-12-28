@@ -1,7 +1,7 @@
 ---
 title: "GPU Line-ups for Data Centers and HPCs"
 layout: single
-date: 2025-11-12
+date: 2025-12-23
 categories:
   - IT Infrastructure Engineering
 tags:
@@ -11,6 +11,13 @@ use_math: true
 ---
 
 ### Data Center & HPC GPU Lineups
+
+ * **"V-Series" (Volta Architecture)**
+    * **Key Models:** **V100**, **V200**, **V300**
+    * **Primary Use:** Historical workhorse for the first wave of modern Deep Learning.
+    * **Key Innovation:** Introduced the **1st Gen Tensor Core**. This allowed the GPU to perform "Mixed Precision" (**FP16/FP32**) math, which was roughly 12x faster than the previous generation for AI.
+    * **Memory:** Used 16GB or 32GB of **HBM2**.
+    * **Status:** Mostly legacy now, but still found in many established research clusters.
 
 * **"A-Series" (Ampere Architecture)**
     * **Key Model:** **A100**
@@ -45,6 +52,15 @@ use_math: true
         * **Memory:** Uses 48GB of **GDDR6** memory. This is slower than HBM but cheaper and still very fast, making it ideal for workloads like inference and rendering.
         * **Cooling:** It is **passively cooled**, meaning it's designed to be put in a high-airflow server chassis.
         * **Comparison:** Think of it as the data center version of the RTX 6000, optimized for 24/7 server environments.
+
+
+* **"GB-Series" (Grace Blackwell Superchips)**
+    * **Key Models:** **GB200**, **GB300**
+    * A "Superchip" is a package that fuses an NVIDIA **Grace CPU** (ARM-based) with **Blackwell GPUs** via a high-speed link (900GB/s).
+    * **GB200:** Combines 1 Grace CPU + 2 B200 GPUs.
+    * **GB300 (Grace Blackwell Ultra):** The flagship superchip for 2025. It pairs Grace CPUs with the **B300 Ultra GPUs**.
+    * **NVL72 Rack:** These are typically sold as part of a **GB300 NVL72** rack—a single liquid-cooled "computer" with 72 GPUs and 36 CPUs that acts as one massive AI accelerator.
+
 
 * **"RTX Pro" (e.g., RTX 6000 Ada Generation)**
     * **Primary Use:** This is *not* a "passive" data center card. It's a **professional workstation** GPU. It's designed for high-end tower PCs used by VFX artists, game developers, architects, and engineers for local development, rendering, and AI *development*.
